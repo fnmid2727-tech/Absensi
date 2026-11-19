@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INFOR ABSEN QR - Sistem Absensi Informatika</title>
+  <title>INFORMATIKA - Sistem Absensi Informatika</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -80,7 +80,7 @@
           <i class="fa-solid fa-qrcode"></i>
         </div>
         <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">INFOR ABSEN QR</h1>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi Digital Informatika SMP • Khusus Guru</p>
+        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi Digital Informatika SMP NEGRI 2 CIKIJING</p>
       </div>
 
       <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
@@ -100,7 +100,7 @@
         </button>
       </form>
       <p class="text-[11px] text-center text-slate-400 mt-6">
-        Akses terbatas untuk Guru / Admin Guru. Siswa tidak memiliki akun login.
+        Akses terbatas untuk Guru / Admin Guru.
       </p>
     </div>
   </div>
@@ -119,8 +119,8 @@
               <i class="fa-solid fa-qrcode"></i>
             </div>
             <div>
-              <div class="font-extrabold text-sm text-slate-900 leading-tight">INFOR ABSEN QR</div>
-              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">INFORMATIKA SMP</div>
+              <div class="font-extrabold text-sm text-slate-900 leading-tight">INFORMATIKA</div>
+              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">SMP NEGRI 2 CIKIJING</div>
             </div>
           </div>
           <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800">
@@ -130,34 +130,34 @@
 
         <nav class="p-3 space-y-1 text-sm overflow-y-auto max-h-[calc(100vh-9rem)]">
           <button onclick="navigate('dashboard')" data-nav="dashboard" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-chart-pie w-4 text-center"></i> 1. Dashboard
+            <i class="fa-solid fa-chart-pie w-4 text-center"></i> Dashboard
           </button>
           <button onclick="navigate('siswa')" data-nav="siswa" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-users w-4 text-center"></i> 2. Data Siswa
+            <i class="fa-solid fa-users w-4 text-center"></i> Data Siswa
           </button>
           <button onclick="navigate('kelas')" data-nav="kelas" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-school w-4 text-center"></i> 3. Data Kelas
+            <i class="fa-solid fa-school w-4 text-center"></i> Data Kelas
           </button>
           <button onclick="navigate('siswaPerKelas')" data-nav="siswaPerKelas" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-list-ul w-4 text-center"></i> 4. Data Siswa Perkelas
+            <i class="fa-solid fa-list-ul w-4 text-center"></i> Data Siswa Perkelas
           </button>
           <button onclick="navigate('qrPerKelas')" data-nav="qrPerKelas" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-id-card w-4 text-center"></i> 5. QR Code Per Kelas
+            <i class="fa-solid fa-id-card w-4 text-center"></i> QR Code 
           </button>
           <button onclick="navigate('absensiQR')" data-nav="absensiQR" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-camera w-4 text-center"></i> 6. Absensi QR Code
+            <i class="fa-solid fa-camera w-4 text-center"></i> Absensi QR Code
           </button>
           <button onclick="navigate('riwayat')" data-nav="riwayat" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-clock-rotate-left w-4 text-center"></i> 7. Riwayat Absensi
+            <i class="fa-solid fa-clock-rotate-left w-4 text-center"></i> Riwayat Absensi
           </button>
           <button onclick="navigate('rekap')" data-nav="rekap" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-table-list w-4 text-center"></i> 8. Rekap Absensi
+            <i class="fa-solid fa-table-list w-4 text-center"></i> Rekap Absensi
           </button>
           <button onclick="navigate('materi')" data-nav="materi" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-book-open w-4 text-center"></i> 9. Materi
+            <i class="fa-solid fa-book-open w-4 text-center"></i> Materi
           </button>
           <button onclick="navigate('pengaturan')" data-nav="pengaturan" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-gear w-4 text-center"></i> 10. Pengaturan Akun
+            <i class="fa-solid fa-gear w-4 text-center"></i> Pengaturan Akun
           </button>
         </nav>
       </div>
@@ -185,7 +185,7 @@
           </button>
           <div class="text-right hidden sm:block">
             <div id="topGuruName" class="text-xs font-bold text-slate-800">Guru Informatika</div>
-            <div id="topGuruRole" class="text-[10px] text-slate-500">Admin / Guru</div>
+            <div id="topGuruRole" class="text-[10px] text-slate-500">Pebri Alpha Pauzi S.Kom</div>
           </div>
           <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-700 font-bold flex items-center justify-center text-sm">
             <i class="fa-solid fa-user-tie"></i>
