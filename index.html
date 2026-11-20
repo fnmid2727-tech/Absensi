@@ -709,7 +709,7 @@
     }
 
     async function runGas(funcName, ...args) {
-      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('https://script.google.com/macros/s/AKfycbwaA5J8dH1SeYnDUJGZn-7COTYgmAxMTENTWZxelmqRpJXwWNWw-BjfuGv1xEqYf89UeQ/exec')) {
+      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('https://script.google.com/macros/s/AKfycbwIzws7xZLuonxb-TBlP4Pmzq0z9kjOA3N8TR7LzEGlU8p45esNjgPNjxFmjbXwVycYnQ/exec')) {
         throw new Error('URL Web App Google Apps Script belum diisi pada GAS_WEB_APP_URL.');
       }
       const response = await fetch(GAS_WEB_APP_URL, {
