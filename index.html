@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INFORMATIKA - Smp Negri 2 Cikijing</title>
+  <title>INFORMATIKA - Sistem Absensi & Nilai Informatika</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -72,8 +72,8 @@
         <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 mb-3">
           <i class="fa-solid fa-qrcode"></i>
         </div>
-        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">INFORMATIKA</h1>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi & Nilai Informatika SMP NEGERI 2 CIKIJING</p>
+        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">INFOR ABSEN QR</h1>
+        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi & Nilai Informatika SMP NEGRI 2 CIKIJING</p>
       </div>
 
       <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
@@ -112,7 +112,7 @@
             </div>
             <div>
               <div class="font-extrabold text-sm text-slate-900 leading-tight">INFORMATIKA</div>
-              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">SMP NEGERI 2 CIKIJING</div>
+              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">SMP NEGRI 2 CIKIJING</div>
             </div>
           </div>
           <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800">
@@ -556,9 +556,6 @@
                 <button onclick="exportRekapNilaiExcel()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl">
                   <i class="fa-solid fa-file-excel"></i> Export Excel Nilai
                 </button>
-                <button onclick="exportRekapNilaiPDF()" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl">
-                  <i class="fa-solid fa-file-pdf"></i> Export PDF Nilai
-                </button>
               </div>
             </div>
 
@@ -677,7 +674,7 @@
   </div>
 
   <script>
-    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby4u848ajGRwwN4loW5ZOP1l8QFkB6D4dQ46gim6Rc0LHupq4psXfm1OOs_PsqaiG75rA/exec';
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwuxtU9iSoFSgPT_hDdkg6KFZcQK0tMgy7kRV9lf0G-yH_v9USG1DY4tox7HoGYfmPISQ/exec';
 
     let currentUser = null;
     let appData = { siswa: [], kelas: [], absensi: [], materi: [], nilai: [] };
@@ -712,7 +709,7 @@
     }
 
     async function runGas(funcName, ...args) {
-      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('GANTI_DENGAN_URL_WEB_APP')) {
+      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('https://script.google.com/macros/s/AKfycbySuOBDV5YNn10PQWUmKKABDKPNSRBiwaY0KL85ISxDmfKqQqQlZMgTf3h_qS-wa1tnSw/exec')) {
         throw new Error('URL Web App Google Apps Script belum diisi pada GAS_WEB_APP_URL.');
       }
       const response = await fetch(GAS_WEB_APP_URL, {
@@ -1792,45 +1789,6 @@
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Rekap Nilai');
       XLSX.writeFile(wb, 'Rekap_Nilai_Informatika_SMPN2Cikijing.xlsx');
-    }
-
-    function exportRekapNilaiPDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF({ orientation: 'landscape' });
-
-      const kls = document.getElementById('rekapNilaiKelas').value || 'Semua Kelas';
-      const wUH = Number(document.getElementById('bobotUH').value) || 0;
-      const wUTS = Number(document.getElementById('bobotUTS').value) || 0;
-      const wUAS = Number(document.getElementById('bobotUAS').value) || 0;
-
-      doc.setFontSize(14);
-      doc.text('REKAP NILAI AKHIR INFORMATIKA - SMP NEGERI 2 CIKIJING', 14, 15);
-
-      doc.setFontSize(10);
-      doc.text(`Kelas: ${kls}   |   Bobot Nilai: UH (${wUH}%) • UTS (${wUTS}%) • UAS (${wUAS}%)`, 14, 22);
-      doc.text(`Guru Pengampu: ${currentUser ? currentUser.namaGuru : 'Pebri Alpha Pauzi S.Kom'}`, 14, 28);
-
-      const body = buildRekapNilaiRows().map(r => [
-        r.no,
-        r.nis,
-        r.nama,
-        r.kelas,
-        r.uh,
-        r.uts,
-        r.uas,
-        r.nilaiAkhir
-      ]);
-
-      doc.autoTable({
-        head: [['No', 'NIS', 'Nama Siswa', 'Kelas', 'Rata-rata UH', 'UTS', 'UAS', 'Nilai Akhir']],
-        body,
-        startY: 33,
-        styles: { fontSize: 9 },
-        headStyles: { fillColor: [79, 70, 229] }
-      });
-
-      const fileKelas = kls.replace(/\s+/g, '_');
-      doc.save(`Rekap_Nilai_Informatika_${fileKelas}.pdf`);
     }
 
     // ==========================================
