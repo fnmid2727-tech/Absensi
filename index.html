@@ -63,13 +63,25 @@
   <!-- LOGIN VIEW -->
   <div id="loginView" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900">
     <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
-      <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white text-center">
-        <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 flex items-center justify-center text-2xl mb-3 shadow-inner">
-          <i class="fa-solid fa-qrcode"></i>
-        </div>
-        <h1 class="text-xl font-extrabold tracking-tight">INFORMATIKA</h1>
-        <p class="text-xs text-indigo-100 mt-1">Sistem Absensi & Nilai • SMP Negeri 2 Cikijing</p>
+     <div class="bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-7 text-white">
+  <div class="flex items-center gap-3.5 mb-3">
+    <img
+      src="assets/logo-smpn2-cikijing.png"
+      alt="Logo SMPN 2 Cikijing"
+      class="w-12 h-12 rounded-2xl object-contain bg-white p-1.5 shadow-md shrink-0"
+      onerror="this.style.display='none'"
+    />
+    <div>
+      <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/15 text-[11px] font-semibold tracking-wide">
+        <span>KHUSUS GURU</span>
+        <span>•</span>
+        <span>SMPN 2 CIKIJING</span>
       </div>
+      <h1 class="text-xl font-extrabold tracking-tight mt-1">INFOR ABSEN QR &amp; NILAI</h1>
+    </div>
+  </div>
+  <p class="text-indigo-100 text-xs sm:text-sm">Sistem Kehadiran QR &amp; Penilaian Mata Pelajaran Informatika</p>
+</div>
 
       <form id="loginForm" onsubmit="handleLogin(event)" class="p-6 space-y-4">
         <div>
@@ -110,7 +122,7 @@
     <!-- SIDEBAR -->
     <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-slate-900 text-slate-300 flex flex-col transition-transform duration-200 -translate-x-full md:translate-x-0 shrink-0">
       <div class="p-5 border-b border-slate-800 flex items-center justify-between">
-        <div class="flex items-center gap-3">
+       <div class="flex items-center gap-3">
   <img
     src="assets/logo-smpn2-cikijing.png"
     alt="Logo SMPN 2 Cikijing"
@@ -118,8 +130,8 @@
     onerror="this.style.display='none'"
   />
   <div>
-    <div class="text-sm font-extrabold text-slate-900 leading-tight">INFORMATIKA</div>
-    <div class="text-[11px] font-semibold text-indigo-600">&amp; SMPN 2 CIKIJING</div>
+    <div class="text-sm font-extrabold text-slate-900 leading-tight">INFOR ABSEN QR</div>
+    <div class="text-[11px] font-semibold text-indigo-600">&amp; NILAI • SMPN 2 CIKIJING</div>
   </div>
 </div>
         <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white">
@@ -218,7 +230,7 @@
       <main class="flex-1 p-4 md:p-6 max-w-7xl w-full mx-auto space-y-6">
 
         <!-- 1. DASHBOARD -->
-        <section id="page-dashboard" class="page-section space-y-6">
+        < id="page-dashboard" class="page-section space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl shadow-xs border border-slate-200/70">
             <div>
               <h3 class="font-bold text-slate-800">Ringkasan Kehadiran Hari Ini</h3>
@@ -1189,7 +1201,7 @@
 
       area.innerHTML = list.map((s, idx) => `
         <div class="student-id-card bg-white rounded-xl border border-slate-300 shadow-sm overflow-hidden flex flex-col justify-between">
-          <div class="bg-gradient-to-r from-indigo-700 to-blue-600 px-3 py-1.5 flex items-center justify-between text-white">
+          -700 to-blue-600 px-3 py-1.5 flex items-center justify-between text-white">
             <span class="text-[9px] font-extrabold tracking-wider uppercase">KARTU PELAJAR • INFOR QR</span>
             <span class="text-[9px] font-bold bg-white/20 px-1.5 py-0.5 rounded">${s.Kelas}</span>
           </div>
