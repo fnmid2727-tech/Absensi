@@ -111,14 +111,17 @@
     <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-slate-900 text-slate-300 flex flex-col transition-transform duration-200 -translate-x-full md:translate-x-0 shrink-0">
       <div class="p-5 border-b border-slate-800 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold shadow-md">
-            <i class="fa-solid fa-qrcode"></i>
-          </div>
-          <div>
-            <div class="text-sm font-extrabold text-white tracking-wide">INFOR ABSEN QR</div>
-            <div class="text-[10px] text-slate-400">SMPN 2 Cikijing</div>
-          </div>
-        </div>
+  <img
+    src="assets/logo-smpn2-cikijing.png"
+    alt="Logo SMPN 2 Cikijing"
+    class="w-10 h-10 rounded-xl object-contain bg-white border border-slate-200 p-1 shrink-0"
+    onerror="this.style.display='none'"
+  />
+  <div>
+    <div class="text-sm font-extrabold text-slate-900 leading-tight">INFORMATIKA</div>
+    <div class="text-[11px] font-semibold text-indigo-600">&amp; SMPN 2 CIKIJING</div>
+  </div>
+</div>
         <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white">
           <i class="fa-solid fa-xmark text-lg"></i>
         </button>
@@ -736,7 +739,7 @@
   </div>
 
   <script>
-    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPyb455fcrrPys0NdmItEA4M95UTszguM-Fb--JsEIc0uhfFufGpAWTY-WgaCl0CuW/exec';
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzCkRVu9yqZCgcybtQZ5WDh83CxojwkY-XBKMnlReEs0_ci5HdnJgE8m1-2K6pqWRjOyA/exec';
 
     let currentUser = null;
     let appData = { siswa: [], kelas: [], absensi: [], materi: [], nilai: [] };
