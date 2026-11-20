@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INFORMATIKA - Sistem Absensi Informatika</title>
+  <title>INFORMATIKA - Smp Negri 2 Cikijing</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -23,7 +23,6 @@
       border-right: 3px solid #4f46e5;
     }
 
-    /* Ukuran standar Kartu Pelajar (CR80 / 85.6mm x 54mm) */
     .student-id-card {
       width: 85.6mm;
       height: 54mm;
@@ -33,12 +32,8 @@
     }
 
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      #qrPrintArea, #qrPrintArea * {
-        visibility: visible;
-      }
+      body * { visibility: hidden; }
+      #qrPrintArea, #qrPrintArea * { visibility: visible; }
       #qrPrintArea {
         position: absolute;
         left: 0;
@@ -56,9 +51,7 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .no-print {
-        display: none !important;
-      }
+      .no-print { display: none !important; }
     }
   </style>
 </head>
@@ -79,8 +72,8 @@
         <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 mb-3">
           <i class="fa-solid fa-qrcode"></i>
         </div>
-        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">INFOR ABSEN QR</h1>
-        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi Digital Informatika SMP NEGRI 2 CIKIJING</p>
+        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">INFORMATIKA</h1>
+        <p class="text-xs text-slate-500 mt-1 font-medium">Sistem Absensi & Nilai Informatika SMP NEGERI 2 CIKIJING</p>
       </div>
 
       <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
@@ -107,7 +100,6 @@
 
   <!-- APLIKASI UTAMA GURU -->
   <div id="appShell" class="hidden min-h-screen flex flex-col md:flex-row">
-    <!-- MOBILE BACKDROP -->
     <div id="sidebarBackdrop" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-xs hidden md:hidden"></div>
 
     <!-- SIDEBAR -->
@@ -120,7 +112,7 @@
             </div>
             <div>
               <div class="font-extrabold text-sm text-slate-900 leading-tight">INFORMATIKA</div>
-              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">SMP NEGRI 2 CIKIJING</div>
+              <div class="text-[10px] text-indigo-600 font-bold tracking-wide">SMP NEGERI 2 CIKIJING</div>
             </div>
           </div>
           <button onclick="toggleSidebar()" class="md:hidden p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800">
@@ -142,7 +134,7 @@
             <i class="fa-solid fa-list-ul w-4 text-center"></i> Data Siswa Perkelas
           </button>
           <button onclick="navigate('qrPerKelas')" data-nav="qrPerKelas" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
-            <i class="fa-solid fa-id-card w-4 text-center"></i> QR Code 
+            <i class="fa-solid fa-id-card w-4 text-center"></i> QR Code
           </button>
           <button onclick="navigate('absensiQR')" data-nav="absensiQR" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
             <i class="fa-solid fa-camera w-4 text-center"></i> Absensi QR Code
@@ -152,6 +144,9 @@
           </button>
           <button onclick="navigate('rekap')" data-nav="rekap" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
             <i class="fa-solid fa-table-list w-4 text-center"></i> Rekap Absensi
+          </button>
+          <button onclick="navigate('nilai')" data-nav="nilai" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
+            <i class="fa-solid fa-graduation-cap w-4 text-center"></i> Nilai (UH, UTS, UAS)
           </button>
           <button onclick="navigate('materi')" data-nav="materi" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100/80 transition">
             <i class="fa-solid fa-book-open w-4 text-center"></i> Materi
@@ -171,7 +166,6 @@
 
     <!-- KONTEN KANAN -->
     <div class="flex-1 flex flex-col min-w-0">
-      <!-- TOPBAR -->
       <header class="h-16 bg-white/90 backdrop-blur border-b border-slate-200/80 px-4 md:px-6 flex items-center justify-between sticky top-0 z-20">
         <div class="flex items-center gap-3 min-w-0">
           <button onclick="toggleSidebar()" class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100">
@@ -193,7 +187,6 @@
         </div>
       </header>
 
-      <!-- AREA HALAMAN -->
       <main class="p-4 sm:p-5 md:p-6 flex-1 space-y-6 max-w-7xl w-full mx-auto">
 
         <!-- 1. DASHBOARD -->
@@ -306,7 +299,7 @@
           </div>
         </section>
 
-        <!-- 4. DATA SISWA PERKELAS (HANYA MENAMPILKAN NAMA) -->
+        <!-- 4. DATA SISWA PERKELAS -->
         <section id="page-siswaPerKelas" class="page-section hidden space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
             <div>
@@ -323,7 +316,7 @@
           </div>
         </section>
 
-        <!-- 5. QR CODE PER KELAS (UKURAN KARTU PELAJAR & BISA DICETAK) -->
+        <!-- 5. QR CODE PER KELAS -->
         <section id="page-qrPerKelas" class="page-section hidden space-y-4">
           <div class="no-print flex flex-wrap items-center justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
             <div>
@@ -346,7 +339,6 @@
         <!-- 6. ABSENSI QR CODE -->
         <section id="page-absensiQR" class="page-section hidden space-y-6">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Panel Kontrol & Kamera -->
             <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
               <div class="flex items-center justify-between">
                 <h3 class="font-bold text-slate-900">Scanner Kamera QR Code</h3>
@@ -385,7 +377,6 @@
               </div>
             </div>
 
-            <!-- Log Absensi Sesi Aktif & Input Manual -->
             <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-bold text-slate-900">Kehadiran Sesi Ini</h3>
@@ -489,7 +480,157 @@
           </div>
         </section>
 
-        <!-- 9. MATERI INFORMATIKA -->
+        <!-- 9. NILAI (UH, UTS, UAS) -->
+        <section id="page-nilai" class="page-section hidden space-y-6">
+          <!-- Panel Input Nilai Massal Per Kelas -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="font-bold text-slate-900">Input Nilai Massal (UH / UTS / UAS)</h3>
+                <p class="text-xs text-slate-500">Pilih kelas dan jenis penilaian untuk mengisi nilai seluruh siswa sekaligus</p>
+              </div>
+              <button onclick="openSingleNilaiModal()" class="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-xl transition">
+                <i class="fa-solid fa-user-plus"></i> Input / Edit Nilai Satuan
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Pilih Kelas</label>
+                <select id="bulkNilaiKelas" onchange="renderBulkNilaiRows()" class="w-full px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-500">
+                  <option value="">-- Pilih Kelas --</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Jenis Nilai</label>
+                <select id="bulkNilaiJenis" class="w-full px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm font-semibold outline-none focus:ring-2 focus:ring-indigo-500">
+                  <option value="UH">Ulangan Harian (UH)</option>
+                  <option value="UTS">Ujian Tengah Semester (UTS)</option>
+                  <option value="UAS">Ujian Akhir Semester (UAS)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Topik / Keterangan</label>
+                <input id="bulkNilaiTopik" type="text" placeholder="Contoh: UH 1 - Algoritma & Pemrograman" class="w-full px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1">Tanggal Penilaian</label>
+                <input id="bulkNilaiTanggal" type="date" class="w-full px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+              </div>
+            </div>
+
+            <div class="overflow-x-auto max-h-80 border border-slate-200/80 rounded-xl">
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 border-b border-slate-200/80 text-slate-600 text-xs uppercase sticky top-0">
+                  <tr>
+                    <th class="p-3 w-12">No</th>
+                    <th class="p-3">NIS</th>
+                    <th class="p-3">Nama Siswa</th>
+                    <th class="p-3 w-36">Nilai (0–100)</th>
+                  </tr>
+                </thead>
+                <tbody id="bulkNilaiTableBody" class="divide-y divide-slate-100">
+                  <tr><td colspan="4" class="p-4 text-center text-slate-400 text-xs">Pilih kelas terlebih dahulu untuk menampilkan daftar siswa.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="flex justify-end">
+              <button onclick="saveBulkNilai()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl flex items-center gap-2 transition shadow-xs">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Semua Nilai
+              </button>
+            </div>
+          </div>
+
+          <!-- Rekap Nilai Akhir (Rata-rata UH, UTS, UAS) -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="font-bold text-slate-900">Rekap Nilai Akhir Siswa</h3>
+                <p class="text-xs text-slate-500">Menghitung rata-rata UH, UTS, UAS, dan Nilai Akhir otomatis</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <select id="rekapNilaiKelas" onchange="renderRekapNilaiTable()" class="px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm">
+                  <option value="">Semua Kelas</option>
+                </select>
+                <button onclick="exportRekapNilaiExcel()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl">
+                  <i class="fa-solid fa-file-excel"></i> Export Excel Nilai
+                </button>
+                <button onclick="exportRekapNilaiPDF()" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl">
+                  <i class="fa-solid fa-file-pdf"></i> Export PDF Nilai
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-200/70 text-xs">
+              <span class="font-bold text-slate-700">Bobot Nilai Akhir (%):</span>
+              <label class="flex items-center gap-1.5">
+                <span>UH:</span>
+                <input id="bobotUH" type="number" min="0" max="100" value="40" onchange="renderRekapNilaiTable()" class="w-16 px-2 py-1 border border-slate-300 rounded-lg bg-white font-semibold" />
+              </label>
+              <label class="flex items-center gap-1.5">
+                <span>UTS:</span>
+                <input id="bobotUTS" type="number" min="0" max="100" value="30" onchange="renderRekapNilaiTable()" class="w-16 px-2 py-1 border border-slate-300 rounded-lg bg-white font-semibold" />
+              </label>
+              <label class="flex items-center gap-1.5">
+                <span>UAS:</span>
+                <input id="bobotUAS" type="number" min="0" max="100" value="30" onchange="renderRekapNilaiTable()" class="w-16 px-2 py-1 border border-slate-300 rounded-lg bg-white font-semibold" />
+              </label>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 border-b border-slate-200/80 text-slate-600 text-xs uppercase">
+                  <tr>
+                    <th class="p-3.5">No</th>
+                    <th class="p-3.5">NIS</th>
+                    <th class="p-3.5">Nama Siswa</th>
+                    <th class="p-3.5">Kelas</th>
+                    <th class="p-3.5 text-center">Rata-rata UH</th>
+                    <th class="p-3.5 text-center">UTS</th>
+                    <th class="p-3.5 text-center">UAS</th>
+                    <th class="p-3.5 text-center">Nilai Akhir</th>
+                  </tr>
+                </thead>
+                <tbody id="rekapNilaiTableBody" class="divide-y divide-slate-100"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Daftar Rinci Seluruh Nilai -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h3 class="font-bold text-slate-900">Riwayat Rinci Nilai (UH / UTS / UAS)</h3>
+              <select id="filterJenisNilai" onchange="renderDetailNilaiTable()" class="px-3.5 py-2 border border-slate-200 bg-slate-50/60 rounded-xl text-sm">
+                <option value="">Semua Jenis Nilai</option>
+                <option value="UH">UH</option>
+                <option value="UTS">UTS</option>
+                <option value="UAS">UAS</option>
+              </select>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 border-b border-slate-200/80 text-slate-600 text-xs uppercase">
+                  <tr>
+                    <th class="p-3.5">No</th>
+                    <th class="p-3.5">Tanggal</th>
+                    <th class="p-3.5">NIS</th>
+                    <th class="p-3.5">Nama Siswa</th>
+                    <th class="p-3.5">Kelas</th>
+                    <th class="p-3.5">Jenis</th>
+                    <th class="p-3.5">Topik / Keterangan</th>
+                    <th class="p-3.5 text-center">Nilai</th>
+                    <th class="p-3.5 text-center">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="detailNilaiTableBody" class="divide-y divide-slate-100"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. MATERI INFORMATIKA -->
         <section id="page-materi" class="page-section hidden space-y-4">
           <div class="flex flex-wrap justify-between items-center gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
             <div>
@@ -503,7 +644,7 @@
           <div id="materiListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- 10. PENGATURAN AKUN -->
+        <!-- 11. PENGATURAN AKUN -->
         <section id="page-pengaturan" class="page-section hidden">
           <div class="max-w-lg bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <h3 class="font-bold text-slate-900 mb-4">Pengaturan Akun Guru</h3>
@@ -536,16 +677,10 @@
   </div>
 
   <script>
-    // ==========================================
-    // KONFIGURASI GOOGLE APPS SCRIPT WEB APP
-    // ==========================================
     const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwuxtU9iSoFSgPT_hDdkg6KFZcQK0tMgy7kRV9lf0G-yH_v9USG1DY4tox7HoGYfmPISQ/exec';
 
-    // ==========================================
-    // STATE APLIKASI
-    // ==========================================
     let currentUser = null;
-    let appData = { siswa: [], kelas: [], absensi: [], materi: [] };
+    let appData = { siswa: [], kelas: [], absensi: [], materi: [], nilai: [] };
     let chartInstance = null;
     let html5QrScanner = null;
     let isSessionActive = false;
@@ -562,6 +697,7 @@
       absensiQR: 'Absensi QR Code',
       riwayat: 'Riwayat Absensi',
       rekap: 'Rekap Absensi',
+      nilai: 'Manajemen Nilai (UH, UTS, UAS)',
       materi: 'Materi Informatika',
       pengaturan: 'Pengaturan Akun Guru'
     };
@@ -582,15 +718,15 @@
       const response = await fetch(GAS_WEB_APP_URL, {
         method: 'POST',
         redirect: 'follow',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ action: funcName, args: args })
       });
-      if (!response.ok) {
-        throw new Error('HTTP status ' + response.status);
+      const rawText = await response.text();
+      try {
+        return JSON.parse(rawText);
+      } catch (e) {
+        throw new Error('Respons server bukan JSON valid. Periksa izin akses Web App GAS atau deployment terbaru.');
       }
-      return await response.json();
     }
 
     function playBeep(isSuccess) {
@@ -608,14 +744,12 @@
       } catch (e) {}
     }
 
-    // ==========================================
-    // INIT & AUTENTIKASI
-    // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
       const today = new Date().toISOString().split('T')[0];
       document.getElementById('dashDateFilter').value = today;
       document.getElementById('riwayatTanggal').value = today;
       document.getElementById('rekapBulan').value = today.slice(0, 7);
+      document.getElementById('bulkNilaiTanggal').value = today;
 
       const savedUser = sessionStorage.getItem('inforAbsenUser');
       if (savedUser) {
@@ -666,9 +800,6 @@
       document.getElementById('loginForm').reset();
     }
 
-    // ==========================================
-    // NAVIGASI
-    // ==========================================
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const backdrop = document.getElementById('sidebarBackdrop');
@@ -703,12 +834,14 @@
       if (pageKey === 'qrPerKelas') renderQrPerKelasCards();
       if (pageKey === 'riwayat') renderRiwayatTable();
       if (pageKey === 'rekap') renderRekapTable();
+      if (pageKey === 'nilai') {
+        renderBulkNilaiRows();
+        renderRekapNilaiTable();
+        renderDetailNilaiTable();
+      }
       if (pageKey === 'materi') renderMateriCards();
     }
 
-    // ==========================================
-    // LOAD DATA & DASHBOARD
-    // ==========================================
     async function refreshAllData() {
       await loadDashboard();
     }
@@ -725,6 +858,7 @@
         appData.kelas = res.kelas || [];
         appData.absensi = res.absensi || [];
         appData.materi = res.materi || [];
+        appData.nilai = res.nilai || [];
 
         const s = res.stats;
         document.getElementById('statTotalSiswa').textContent = s.totalSiswa;
@@ -743,6 +877,9 @@
         renderQrPerKelasCards();
         renderRiwayatTable();
         renderRekapTable();
+        renderBulkNilaiRows();
+        renderRekapNilaiTable();
+        renderDetailNilaiTable();
         renderMateriCards();
         renderLiveSessionTable();
       } catch (err) {
@@ -781,7 +918,9 @@
         { id: 'qrKelasFilter', allLabel: '-- Semua Kelas --' },
         { id: 'scanKelasSelect', allLabel: '-- Pilih Kelas --' },
         { id: 'riwayatKelas', allLabel: 'Semua Kelas' },
-        { id: 'rekapKelas', allLabel: 'Semua Kelas' }
+        { id: 'rekapKelas', allLabel: 'Semua Kelas' },
+        { id: 'bulkNilaiKelas', allLabel: '-- Pilih Kelas --' },
+        { id: 'rekapNilaiKelas', allLabel: 'Semua Kelas' }
       ];
       selects.forEach(cfg => {
         const el = document.getElementById(cfg.id);
@@ -794,7 +933,7 @@
     }
 
     // ==========================================
-    // CRUD SISWA & QR CODE
+    // SISWA & QR CODE
     // ==========================================
     function renderSiswaTable() {
       const q = (document.getElementById('searchSiswa').value || '').toLowerCase();
@@ -943,9 +1082,6 @@
       reader.readAsArrayBuffer(file);
     }
 
-    // ==========================================
-    // DATA SISWA PERKELAS (HANYA NAMA SAJA)
-    // ==========================================
     function renderSiswaPerKelas() {
       const selectedKelas = document.getElementById('filterKelasSiswa').value;
       const list = selectedKelas
@@ -966,9 +1102,6 @@
       `).join('');
     }
 
-    // ==========================================
-    // QR CODE PER KELAS (UKURAN KARTU PELAJAR)
-    // ==========================================
     function renderQrPerKelasCards() {
       const selectedKelas = document.getElementById('qrKelasFilter').value;
       const list = selectedKelas
@@ -1011,7 +1144,7 @@
     }
 
     // ==========================================
-    // CRUD KELAS
+    // KELAS
     // ==========================================
     function renderKelasTable() {
       const tbody = document.getElementById('kelasTableBody');
@@ -1080,7 +1213,7 @@
     }
 
     // ==========================================
-    // ABSENSI QR CODE (KAMERA)
+    // ABSENSI QR, RIWAYAT & REKAP
     // ==========================================
     async function bukaSesiAbsensi() {
       const kelasDipilih = document.getElementById('scanKelasSelect').value;
@@ -1097,6 +1230,9 @@
       document.getElementById('btnTutupSesi').disabled = false;
       document.getElementById('lastScanResult').innerHTML = `<span class="text-emerald-700 font-bold">Kamera aktif.</span> Arahkan ke QR Code siswa kelas ${kelasDipilih}.`;
 
+      if (html5QrScanner) {
+        try { await html5QrScanner.clear(); } catch (e) {}
+      }
       html5QrScanner = new Html5Qrcode('qr-reader');
       try {
         await html5QrScanner.start(
@@ -1172,9 +1308,6 @@
       `).join('');
     }
 
-    // ==========================================
-    // STATUS MANUAL, RIWAYAT, REKAP & EXPORT
-    // ==========================================
     async function openManualStatusModal(existingRecord = null) {
       const siswaOptions = appData.siswa.map(s =>
         `<option value="${s.NIS}">${s.NIS} - ${s.Nama_Lengkap} (${s.Kelas})</option>`
@@ -1383,6 +1516,321 @@
         startY: 22
       });
       doc.save('Rekap_Absensi_Informatika.pdf');
+    }
+
+    // ==========================================
+    // MANAJEMEN NILAI (UH, UTS, UAS)
+    // ==========================================
+    function renderBulkNilaiRows() {
+      const kls = document.getElementById('bulkNilaiKelas').value;
+      const tbody = document.getElementById('bulkNilaiTableBody');
+      if (!kls) {
+        tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-400 text-xs">Pilih kelas terlebih dahulu untuk menampilkan daftar siswa.</td></tr>`;
+        return;
+      }
+
+      const list = appData.siswa.filter(s => String(s.Kelas).trim() === String(kls).trim());
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-400 text-xs">Tidak ada siswa di kelas ${kls}.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map((s, idx) => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-3">${idx + 1}</td>
+          <td class="p-3 font-mono text-xs">${s.NIS}</td>
+          <td class="p-3 font-medium text-slate-800">${s.Nama_Lengkap}</td>
+          <td class="p-3">
+            <input type="number" min="0" max="100" step="0.1"
+              data-nis="${s.NIS}" data-nama="${s.Nama_Lengkap}" data-kelas="${s.Kelas}"
+              placeholder="0 - 100"
+              class="bulk-nilai-input w-28 px-3 py-1.5 border border-slate-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-indigo-500 outline-none" />
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function saveBulkNilai() {
+      const jenisNilai = document.getElementById('bulkNilaiJenis').value;
+      const topikKeterangan = document.getElementById('bulkNilaiTopik').value.trim() || jenisNilai;
+      const tanggal = document.getElementById('bulkNilaiTanggal').value;
+
+      const inputs = Array.from(document.querySelectorAll('.bulk-nilai-input'));
+      const items = [];
+
+      for (const inp of inputs) {
+        if (inp.value.trim() === '') continue;
+        const val = Number(inp.value);
+        if (isNaN(val) || val < 0 || val > 100) {
+          Swal.fire('Nilai Tidak Valid', `Nilai untuk NIS ${inp.dataset.nis} harus di antara 0 sampai 100.`, 'warning');
+          return;
+        }
+        items.push({
+          nis: inp.dataset.nis,
+          namaLengkap: inp.dataset.nama,
+          kelas: inp.dataset.kelas,
+          jenisNilai,
+          topikKeterangan,
+          nilai: val,
+          tanggal
+        });
+      }
+
+      if (!items.length) {
+        Swal.fire('Kosong', 'Isi minimal satu nilai siswa terlebih dahulu.', 'warning');
+        return;
+      }
+
+      showLoading(`Menyimpan ${items.length} nilai ${jenisNilai}...`);
+      try {
+        const res = await runGas('simpanNilaiBulk', items);
+        hideLoading();
+        Swal.fire(res.success ? 'Berhasil' : 'Gagal', res.message, res.success ? 'success' : 'error');
+        if (res.success) {
+          document.getElementById('bulkNilaiTopik').value = '';
+          loadDashboard();
+        }
+      } catch (err) {
+        hideLoading();
+        Swal.fire('Error', err.message, 'error');
+      }
+    }
+
+    async function openSingleNilaiModal(existing = null) {
+      const siswaOptions = appData.siswa.map(s =>
+        `<option value="${s.NIS}" ${existing && String(existing.NIS) === String(s.NIS) ? 'selected' : ''}>${s.NIS} - ${s.Nama_Lengkap} (${s.Kelas})</option>`
+      ).join('');
+
+      const today = new Date().toISOString().split('T')[0];
+
+      const { value: form } = await Swal.fire({
+        title: existing ? 'Edit Nilai Siswa' : 'Input Nilai Satuan (UH / UTS / UAS)',
+        html: `
+          <div class="space-y-3 text-left text-sm">
+            <div>
+              <label class="block text-xs font-semibold mb-1">Siswa</label>
+              <select id="swal-nil-nis" class="swal2-select !m-0 !w-full !text-sm" ${existing ? 'disabled' : ''}>
+                ${siswaOptions}
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold mb-1">Jenis Nilai</label>
+              <select id="swal-nil-jenis" class="swal2-select !m-0 !w-full !text-sm">
+                ${['UH', 'UTS', 'UAS'].map(j =>
+                  `<option value="${j}" ${existing && existing.Jenis_Nilai === j ? 'selected' : ''}>${j}</option>`
+                ).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold mb-1">Topik / Keterangan</label>
+              <input id="swal-nil-topik" class="swal2-input !m-0 !w-full !text-sm" placeholder="Contoh: UH 2 / UTS Genap / UAS" value="${existing ? (existing.Topik_Keterangan || '') : ''}">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold mb-1">Nilai (0 - 100)</label>
+              <input id="swal-nil-skor" type="number" min="0" max="100" step="0.1" class="swal2-input !m-0 !w-full !text-sm" value="${existing ? existing.Nilai : ''}">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold mb-1">Tanggal</label>
+              <input id="swal-nil-tgl" type="date" class="swal2-input !m-0 !w-full !text-sm" value="${existing ? existing.Tanggal : today}">
+            </div>
+          </div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Simpan Nilai',
+        preConfirm: () => ({
+          idNilai: existing ? existing.ID_Nilai : '',
+          nis: document.getElementById('swal-nil-nis').value,
+          jenisNilai: document.getElementById('swal-nil-jenis').value,
+          topikKeterangan: document.getElementById('swal-nil-topik').value.trim(),
+          nilai: Number(document.getElementById('swal-nil-skor').value),
+          tanggal: document.getElementById('swal-nil-tgl').value
+        })
+      });
+
+      if (!form) return;
+      showLoading('Menyimpan nilai...');
+      try {
+        const res = await runGas('simpanNilai', form);
+        hideLoading();
+        Swal.fire(res.success ? 'Berhasil' : 'Gagal', res.message, res.success ? 'success' : 'error');
+        if (res.success) loadDashboard();
+      } catch (err) {
+        hideLoading();
+        Swal.fire('Error', err.message, 'error');
+      }
+    }
+
+    async function confirmHapusNilai(idNilai) {
+      const ok = await Swal.fire({
+        title: 'Hapus Nilai Ini?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus'
+      });
+      if (!ok.isConfirmed) return;
+      showLoading('Menghapus nilai...');
+      try {
+        const res = await runGas('hapusNilai', idNilai);
+        hideLoading();
+        Swal.fire(res.success ? 'Terhapus' : 'Gagal', res.message, res.success ? 'success' : 'error');
+        if (res.success) loadDashboard();
+      } catch (err) {
+        hideLoading();
+        Swal.fire('Error', err.message, 'error');
+      }
+    }
+
+    function buildRekapNilaiRows() {
+      const kls = document.getElementById('rekapNilaiKelas').value;
+      const wUH = Number(document.getElementById('bobotUH').value) || 0;
+      const wUTS = Number(document.getElementById('bobotUTS').value) || 0;
+      const wUAS = Number(document.getElementById('bobotUAS').value) || 0;
+      const totalBobot = wUH + wUTS + wUAS;
+
+      const siswaList = kls ? appData.siswa.filter(s => s.Kelas === kls) : appData.siswa;
+
+      return siswaList.map((s, idx) => {
+        const nSiswa = appData.nilai.filter(n => String(n.NIS).trim() === String(s.NIS).trim());
+        const uhList = nSiswa.filter(n => String(n.Jenis_Nilai).toUpperCase() === 'UH').map(n => Number(n.Nilai)).filter(v => !isNaN(v));
+        const utsList = nSiswa.filter(n => String(n.Jenis_Nilai).toUpperCase() === 'UTS').map(n => Number(n.Nilai)).filter(v => !isNaN(v));
+        const uasList = nSiswa.filter(n => String(n.Jenis_Nilai).toUpperCase() === 'UAS').map(n => Number(n.Nilai)).filter(v => !isNaN(v));
+
+        const avg = arr => arr.length ? (arr.reduce((a, b) => a + b, 0) / arr.length) : null;
+        const avgUH = avg(uhList);
+        const avgUTS = avg(utsList);
+        const avgUAS = avg(uasList);
+
+        let nilaiAkhir = '-';
+        if (totalBobot > 0 && (avgUH !== null || avgUTS !== null || avgUAS !== null)) {
+          const score =
+            ((avgUH || 0) * wUH +
+             (avgUTS || 0) * wUTS +
+             (avgUAS || 0) * wUAS) / totalBobot;
+          nilaiAkhir = score.toFixed(1);
+        }
+
+        return {
+          no: idx + 1,
+          nis: s.NIS,
+          nama: s.Nama_Lengkap,
+          kelas: s.Kelas,
+          uh: avgUH !== null ? avgUH.toFixed(1) : '-',
+          uts: avgUTS !== null ? avgUTS.toFixed(1) : '-',
+          uas: avgUAS !== null ? avgUAS.toFixed(1) : '-',
+          nilaiAkhir
+        };
+      });
+    }
+
+    function renderRekapNilaiTable() {
+      const rows = buildRekapNilaiRows();
+      const tbody = document.getElementById('rekapNilaiTableBody');
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-400">Belum ada data siswa/nilai.</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = rows.map(r => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-3.5">${r.no}</td>
+          <td class="p-3.5 font-mono text-xs">${r.nis}</td>
+          <td class="p-3.5 font-medium text-slate-800">${r.nama}</td>
+          <td class="p-3.5">${r.kelas}</td>
+          <td class="p-3.5 text-center font-semibold text-slate-700">${r.uh}</td>
+          <td class="p-3.5 text-center font-semibold text-indigo-700">${r.uts}</td>
+          <td class="p-3.5 text-center font-semibold text-blue-700">${r.uas}</td>
+          <td class="p-3.5 text-center font-extrabold text-emerald-700">${r.nilaiAkhir}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderDetailNilaiTable() {
+      const kls = document.getElementById('rekapNilaiKelas').value;
+      const jenis = document.getElementById('filterJenisNilai').value;
+      const tbody = document.getElementById('detailNilaiTableBody');
+
+      const filtered = appData.nilai.filter(n => {
+        const matchKls = !kls || String(n.Kelas).trim() === String(kls).trim();
+        const matchJenis = !jenis || String(n.Jenis_Nilai).toUpperCase() === jenis;
+        return matchKls && matchJenis;
+      });
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="9" class="p-4 text-center text-slate-400">Belum ada riwayat nilai.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((n, i) => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-3.5">${i + 1}</td>
+          <td class="p-3.5 text-xs">${n.Tanggal || '-'}</td>
+          <td class="p-3.5 font-mono text-xs">${n.NIS}</td>
+          <td class="p-3.5 font-medium text-slate-800">${n.Nama_Lengkap}</td>
+          <td class="p-3.5">${n.Kelas}</td>
+          <td class="p-3.5"><span class="px-2 py-0.5 rounded text-xs font-bold bg-indigo-50 text-indigo-700">${n.Jenis_Nilai}</span></td>
+          <td class="p-3.5 text-xs text-slate-600">${n.Topik_Keterangan || '-'}</td>
+          <td class="p-3.5 text-center font-bold text-slate-900">${n.Nilai}</td>
+          <td class="p-3.5 text-center space-x-1">
+            <button onclick='openSingleNilaiModal(${JSON.stringify(n)})' class="px-2 py-1 bg-amber-100 text-amber-800 rounded text-xs font-medium">Edit</button>
+            <button onclick="confirmHapusNilai('${n.ID_Nilai}')" class="px-2 py-1 bg-rose-100 text-rose-700 rounded text-xs font-medium">Hapus</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function exportRekapNilaiExcel() {
+      const rows = buildRekapNilaiRows().map(r => ({
+        No: r.no,
+        NIS: r.nis,
+        Nama_Siswa: r.nama,
+        Kelas: r.kelas,
+        Rata_Rata_UH: r.uh,
+        UTS: r.uts,
+        UAS: r.uas,
+        Nilai_Akhir: r.nilaiAkhir
+      }));
+      const ws = XLSX.utils.json_to_sheet(rows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Rekap Nilai');
+      XLSX.writeFile(wb, 'Rekap_Nilai_Informatika_SMPN2Cikijing.xlsx');
+    }
+
+    function exportRekapNilaiPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'landscape' });
+
+      const kls = document.getElementById('rekapNilaiKelas').value || 'Semua Kelas';
+      const wUH = Number(document.getElementById('bobotUH').value) || 0;
+      const wUTS = Number(document.getElementById('bobotUTS').value) || 0;
+      const wUAS = Number(document.getElementById('bobotUAS').value) || 0;
+
+      doc.setFontSize(14);
+      doc.text('REKAP NILAI AKHIR INFORMATIKA - SMP NEGERI 2 CIKIJING', 14, 15);
+
+      doc.setFontSize(10);
+      doc.text(`Kelas: ${kls}   |   Bobot Nilai: UH (${wUH}%) • UTS (${wUTS}%) • UAS (${wUAS}%)`, 14, 22);
+      doc.text(`Guru Pengampu: ${currentUser ? currentUser.namaGuru : 'Pebri Alpha Pauzi S.Kom'}`, 14, 28);
+
+      const body = buildRekapNilaiRows().map(r => [
+        r.no,
+        r.nis,
+        r.nama,
+        r.kelas,
+        r.uh,
+        r.uts,
+        r.uas,
+        r.nilaiAkhir
+      ]);
+
+      doc.autoTable({
+        head: [['No', 'NIS', 'Nama Siswa', 'Kelas', 'Rata-rata UH', 'UTS', 'UAS', 'Nilai Akhir']],
+        body,
+        startY: 33,
+        styles: { fontSize: 9 },
+        headStyles: { fillColor: [79, 70, 229] }
+      });
+
+      const fileKelas = kls.replace(/\s+/g, '_');
+      doc.save(`Rekap_Nilai_Informatika_${fileKelas}.pdf`);
     }
 
     // ==========================================
